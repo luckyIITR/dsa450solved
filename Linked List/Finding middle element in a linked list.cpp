@@ -59,6 +59,21 @@ public:
         }
         return curr->data;
     }
+
+    // find mid using slow and fast pointers
+    Node *findmid(Node *head)
+    {
+        if (head == nullptr or head->next == nullptr)
+            return head;
+        Node *slow = head;
+        Node *fast = head->next;
+        while (fast != nullptr and fast->next != nullptr)
+        {
+            slow = slow->next;
+            fast = fast->next->next;
+        }
+        return slow;
+    }
 };
 
 // { Driver Code Starts.
