@@ -35,22 +35,22 @@ public:
     }
 
     // Recurrsion
-    // int solve(int arr[], int L, int R)
-    // {
-    //     if (L == R)
-    //         return 0;
-    //     int cost_min = 1e9;
-    //     for (int k = L; k < R; k++)
-    //     {
-    //         cost_min = min(cost_min, solve(arr, L, k) + solve(arr, k + 1, R) + arr[L - 1] * arr[k] * arr[R]);
-    //     }
-    //     return cost_min;
-    // }
+    int solve(int arr[], int L, int R)
+    {
+        if (L == R)
+            return 0;
+        int cost_min = 1e9;
+        for (int k = L; k < R; k++)
+        {
+            cost_min = min(cost_min, solve(arr, L, k) + solve(arr, k + 1, R) + arr[L - 1] * arr[k] * arr[R]);
+        }
+        return cost_min;
+    }
 
-    // int matrixMultiplication(int N, int arr[])
-    // {
-    //     return solve(arr, 1, N - 1);
-    // }
+    int matrixMultiplication(int N, int arr[])
+    {
+        return solve(arr, 1, N - 1);
+    }
 };
 
 // { Driver Code Starts.
