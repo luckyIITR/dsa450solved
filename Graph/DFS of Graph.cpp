@@ -9,11 +9,11 @@ public:
     // Function to return a list containing the DFS traversal of the graph.
     void solve(int V, vector<int> adj[], unordered_map<int, bool> &mp, int node, vector<int> &dfs)
     {
+        mp[node] = true;
         for (int i = 0; i < adj[node].size(); i++)
         {
             if (mp.find(adj[node][i]) == mp.end())
             {
-                mp[adj[node][i]] = true;
                 dfs.push_back(adj[node][i]);
                 solve(V, adj, mp, adj[node][i], dfs);
             }
